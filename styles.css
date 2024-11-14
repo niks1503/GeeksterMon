@@ -35,5 +35,37 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 20px;
+  margin: 10px;
+
+  .card {
+    margin: auto;
+    padding: 20px;
+    width: 200px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: random_bg_color();
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgb(109, 109, 109);
+    .pokemon_img {
+      img {
+        background: transparent;
+      }
+    }
+
+    .pokemon_name {
+      font-size: 18px;
+      font-weight: bold;
+      color: rgb(64, 58, 58);
+    }
+
+    .pokemon_type {
+      background-color: white;
+      padding: 3px 5px;
+      border-radius: 5px;
+    }
+  }
 }

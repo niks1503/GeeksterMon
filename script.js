@@ -73,11 +73,12 @@ async function displayCards() {
 
     let div = document.createElement("div");
     div.className = "card";
+    div.style.backgroundColor = random_bg_color();
     div.innerHTML = `
       <div class="card_no"></div>
       <div class="pokemon_img"><img src="${img_src}" alt="${pokemon_name}" style="width:50px; height:50px" /></div>
-      <div class="pokemon_name">${pokemon_name}</div>
-      <div class="pokemon_type">${type_text}</div>
+      <div class="pokemon_name">${pokemon_name.toUpperCase()}</div>
+      <div class="pokemon_type">${type_text.toUpperCase()}</div>
     `;
 
     cards_container.appendChild(div);
@@ -94,3 +95,21 @@ reset_btn.addEventListener("click", () => {
 
 // Uncomment and implement search functionality if needed
 // search.addEventListener("keyup", displayCards);
+
+// Define a function named random_bg_color that generates a random RGB color and sets it as the background color of the document body.
+function random_bg_color() {
+  // Generate random values for red, green, and blue components between 0 and 255.
+  var x = Math.floor(Math.random() * 256);
+  var y = Math.floor(Math.random() * 256);
+  var z = Math.floor(Math.random() * 256);
+  // Construct the RGB color string.
+  var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+  // Output the generated color to the console.
+  // console.log(bgColor);
+  // Set the background color of the document body to the generated color.
+  //document.body.style.background = bgColor;
+  return bgColor;
+}
+
+// Call the random_bg_color function to set a random background color.
+random_bg_color();
