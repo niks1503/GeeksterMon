@@ -81,7 +81,20 @@ async function displayCards() {
       <div class="pokemon_type">${type_text.toUpperCase()}</div>
     `;
 
+    let back_card = document.createElement("div");
+    back_card.className = "back_card";
+    back_card.innerHTML = `
+      <div class="card_no"></div>
+      <div class="pokemon_img"><img src="${img_src}" alt="${pokemon_name}" style="width:50px; height:50px" /></div>
+      <div class="pokemon_name">${pokemon_name.toUpperCase()}</div>
+      <div class="pokemon_ability">Abilities:${pokemon_name.ability}</div>
+    `;
+
     cards_container.appendChild(div);
+
+    div.addEventListener("mouseover", () => {
+      cards_container.appendChild(back_card);
+    });
   });
 }
 
