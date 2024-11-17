@@ -59,7 +59,7 @@ random_bg_color();
 
 async function displayCardsAll() {
   cards_container.innerHTML = ""; // Clear existing cards
-
+  types.value = "All Types";
   let type_text = types.value.toLowerCase();
 
   if (type_text === "" || type_text === "all types") {
@@ -99,7 +99,7 @@ async function displayCardsSearch() {
   const data = await res.json();
 
   // Filter Pokémon by name matching the search query
-  const filteredPokemon = data.results.filter((pokemon) =>
+  let filteredPokemon = data.results.filter((pokemon) =>
     pokemon.name.includes(str)
   );
 
@@ -123,9 +123,9 @@ async function displayCardsSearch() {
 }
 
 // Event listener to search on keyup
-search.addEventListener("keyup", displayCardsSearch()); // Pass the function reference, not a function call
+search.addEventListener("keyup", displayCardsSearch); // Pass the function reference, not a function call
 
-reset_btn.addEventListener("click", displayCardsAll());
+reset_btn.addEventListener("click", displayCardsAll);
 
 // Event listener to load all Pokémon on page load
-window.addEventListener("load", displayCardsAll());
+window.addEventListener("load", displayCardsAll);
