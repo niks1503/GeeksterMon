@@ -40,11 +40,6 @@ async function displayCards() {
 // Event listeners
 type_filter_btn.addEventListener("click", displayCards);
 
-reset_btn.addEventListener("click", () => {
-  types.selectedIndex = 0; // Reset dropdown selection
-  cards_container.innerHTML = ""; // Clear displayed cards
-});
-
 // Uncomment and implement search functionality if needed
 // search.addEventListener("keyup", displayCards);
 
@@ -93,9 +88,6 @@ async function displayCardsAll() {
   }
 }
 
-// Event listener to load all Pokémon on page load
-window.addEventListener("load", displayCardsAll);
-
 async function displayCardsSearch() {
   // Clear previous cards
   cards_container.innerHTML = "";
@@ -132,4 +124,9 @@ async function displayCardsSearch() {
 }
 
 // Event listener to search on keyup
-search.addEventListener("keyup", displayCardsSearch); // Pass the function reference, not a function call
+search.addEventListener("keyup", displayCardsSearch()); // Pass the function reference, not a function call
+
+reset_btn.addEventListener("click", displayCardsAll());
+
+// Event listener to load all Pokémon on page load
+window.addEventListener("load", displayCardsAll());
