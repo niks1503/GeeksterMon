@@ -66,7 +66,6 @@ async function displayCardsAll() {
     const url = `https://pokeapi.co/api/v2/pokemon?limit=100`; // Adjust limit as needed
     const res = await fetch(url);
     const data = await res.json();
-    console.log(data);
 
     // Display each Pokémon
     data.results.forEach((val) => {
